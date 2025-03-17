@@ -1,0 +1,4 @@
+openai==1.6.1
+Flask==2.0.1
+Werkzeug==2.0.1
+spacy==3.7.2
