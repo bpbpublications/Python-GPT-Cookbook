@@ -1,0 +1,29 @@
+openapi: 3.0.0
+info:
+  title: HelloWorldAPI
+  version: 1.0.0
+servers:
+  - url: https://cookbook.loca.lt
+    description: localtunnel to port 8000
+paths:
+  /:
+    get:
+      operationId: getHelloWorld
+      summary: Returns a simple 'Hello World' message
+      parameters:
+        - in: header
+          name: Bypass-Tunnel-Reminder
+          schema:
+            type: string
+          required: true
+          example: "MyCustomGPTAction/1.0"
+      responses:
+        '200':
+          description: A simple hello message
+          content:
+            application/json:
+              schema: 
+                type: object
+                properties:
+                  message:
+                    type: string

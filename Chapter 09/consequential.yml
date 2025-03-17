@@ -1,0 +1,38 @@
+openapi: 3.0.0
+info:
+  title: HelloWorldAPI
+  version: 1.0.0
+servers:
+  - url: https://your-localtunnel-url.localtunnel.me
+    description: LocalTunnel development server
+paths:
+  /nonconsequential:
+    get:
+      operationId: getNonConsequentialHello
+      summary: Returns a hello message from a non-consequential action
+      x-openai-isConsequential: false
+      responses:
+        '200':
+          description: A simple hello message from a non-consequential action
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+  /consequential:
+    post:
+      operationId: postConsequentialHello
+      summary: Returns a hello message from a consequential action
+      x-openai-isConsequential: true
+      responses:
+        '200':
+          description: A simple hello message from a consequential action
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string

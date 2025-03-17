@@ -1,0 +1,32 @@
+openapi: 3.0.0
+info:
+  title: AuthHelloWorldAPI
+  version: 1.0.0
+servers:
+  - url: https://your-localtunnel-url.localtunnel.me
+    description: LocalTunnel development server
+paths:
+  /:
+    get:
+      operationId: getAuthenticatedHelloWorld
+      summary: Returns a 'Hello World' message with API key authentication
+      parameters:
+        - in: header
+          name: X-Api-Key
+          required: true
+          schema:
+            type: string
+          description: API key for authentication
+      responses:
+        '200':
+          description: A simple hello message
+          content:
+            application/json:
+              schema: 
+                type: object
+                properties:
+                  message:
+                    type: string
+        '401':
+          description: Unauthorized access
+
